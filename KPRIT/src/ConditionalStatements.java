@@ -10,7 +10,7 @@ public class ConditionalStatements {
 		if (marks >= 90) {
 			System.out.println("A");
 		}
-		else if (marks >= 70) {
+		else if (marks >= 75) {
 			System.out.println("B");
 		}
 		else if(marks>=50){
