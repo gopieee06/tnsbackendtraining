@@ -1,8 +1,12 @@
 //Student grade printing using conditional statements
+import java.util.Scanner;
 public class ConditionalStatements {
 	public static void main(String args[]) {
 		
-		int marks = 90;
+		int marks;
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Enter a the marks : ");
+		marks = sc.nextInt();
 		if (marks >= 90) {
 			System.out.println("A");
 		}
