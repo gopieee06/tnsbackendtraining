@@ -123,7 +123,7 @@ public class TicketBooking {
 		this.wallno = wallno;
 	}
 
-	//getter and setter for balence
+	//getter and setter for balance
 	public int getBalance() {
 		return balance;
 	}
