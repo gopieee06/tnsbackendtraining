@@ -5,18 +5,20 @@ import java.util.Scanner;
 public class TicketBookingMain {
 	
 
-//	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		TicketBooking obj = new TicketBooking("Cooliee Movie","Gopi Anem",9,"+91 8888888198");
+		TicketBooking obj = new TicketBooking("Coliee Movie","Gopi Anem",6,"+91 8888888198");
 		
 		System.out.println("Choose the Mode of Payment : ");
 		System.out.println("1. Cash");
 		System.out.println("2. Credit Card");
 		System.out.println("3. Online Wallet");
+		System.out.println("4. UPI/BHIM pay");
 		obj.option = sc.nextInt();
-		System.out.print("Enter the Amount : ");
-		obj.amount = sc.nextInt();
+		if (obj.option >=1 && obj.option <=4) {
+			System.out.print("Enter the Amount : ");
+			obj.amount = sc.nextDouble();
+		}
 		switch(obj.option) {
 		case 1: {
 			obj.makePayment(obj.amount);
@@ -39,9 +41,14 @@ public class TicketBookingMain {
 			break;
 		}
 		case 4 :{
-			System.out.println("Enter the balence in your Account : ");
-			obj.setBalance(sc.nextInt());
-			
+			System.out.print("Enter the balance in your Account : ");
+			obj.setBalance(sc.nextDouble());
+			obj.makePayment(obj.amount, obj.getBalance());
+			break;
+		}
+		
+		default :{
+			System.out.println("Worng Input!");
 		}
 		}
 		

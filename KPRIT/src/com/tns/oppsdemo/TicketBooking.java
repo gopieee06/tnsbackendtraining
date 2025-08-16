@@ -5,38 +5,45 @@ import java.util.Scanner;
 public class TicketBooking {
 	
 	//initializing all the variables
-	int total_amt,option;
-	double return_amt,amount,fair;
+	int option;
+	double return_amt,amount,fair,total_amt,gst;
 	//initializing all private variables
-	private int cvv,balance;
+	private int cvv;
+	private double balance;
 	private String creditCard,holdername,wallno;
 	
 	Scanner sc = new Scanner(System.in);
 	
 	//Parameterized Constructor
 	public TicketBooking(String stageEvent,String customer,int noOfSeats,String phno) {
-			System.out.println("Tickets are booked for the evevt " + stageEvent + ".");
-			System.out.println("Cusome name was " + customer + ".");
-			System.out.println("Your Phone number was +91 ******"+phno.substring(10) + ".");
+		System.out.println("Tickets are booking for the event " + stageEvent + ".");
+			System.out.println("Customer name " + customer + ".");
+			System.out.println("Phone number +91 ******"+phno.substring(10) + ".");
 			double movie_fair = 300;
 			fair = (double)movie_fair * noOfSeats;
+			gst = (0.18 * fair);
 			if (noOfSeats == 1) {
-				System.out.println("Fair of " + noOfSeats + " seats is " + fair + ".");
+				System.out.println("Fair of " + noOfSeats + " seats is  : " + fair);
 			}
 			else {
-				System.out.println("Fair of " + noOfSeats + " seats are " + fair + ".");
+				System.out.println("Fair of " + noOfSeats + " seats are : " + fair);
 			}
+				System.out.println("	   Gst(18%) : " + gst);
+				System.out.println("	   ------------------");
+				System.out.println("	      Total : " + (fair+gst));
+				
+				
 	}
 	
 	//Mode of payment cash
 	void makePayment(double amount) {
 		System.out.print("Enter The amount You giving : ");
-		total_amt = sc.nextInt();
+		total_amt = sc.nextDouble();
 		if (total_amt >= amount) {
 			return_amt =  total_amt - amount;
 			System.out.println(amount + " Paid.");
 			System.out.println("Retuned Amount was " + return_amt);
-			System.out.println("Your Seates are booked, You get a seatnumbers Via SMS." );
+			System.out.println("Your Seates are booked, You'll get seat numbers Via SMS. ");
 		}
 		else {
 			System.out.println("The given amount " + total_amt + " is less Than the the actual price " + amount);
@@ -47,10 +54,10 @@ public class TicketBooking {
 	//Mode of payment Online Credit Card
 	void makePayment(String creditCard,int cvv,String holdername,double amount) {
 		System.out.print("Enter the toatal amount you have your Card : ");
-		total_amt = sc.nextInt();
+		total_amt = sc.nextDouble();
 		if (total_amt >= amount) {
 			System.out.println(amount + " Paid.");
-			System.out.println("Your Seates are booked, You get a seatnumbers Via SMS. ");
+			System.out.println("Your Seates are booked, You'll get seat numbers Via SMS. ");
 		}
 		else {
 			System.out.println("Your Card has less amount than " + amount);
@@ -61,10 +68,10 @@ public class TicketBooking {
 	//Mode of payment Online wallet
 	void makePayment(String wallno,double amount) {
 		System.out.print("Enter The total amount you have in your wallet : ");
-		total_amt = sc.nextInt();
+		total_amt = sc.nextDouble();
 		if (total_amt >= amount) {
 			System.out.println(amount + " Paid.");
-			System.out.println("Your Seates are booked, You get a seatnumbers Via SMS. ");
+			System.out.println("Your Seates are booked, You'll get seat numbers Via SMS. ");
 		}
 		else {
 			System.out.println("Your wallet has less amount than " + amount);
@@ -74,11 +81,11 @@ public class TicketBooking {
 	
 	
 	//Mode of payment Via QR (Phonepay,Gpay,paytm Any UPI apps)
-	void makePayment(double amount,int balance) {
-		System.out.println("Scan the QR though Scanner to make the payment  : ");
-		if (amount >= balance ) {
+	void makePayment(double amount,double balance) {
+		if (amount <= balance ) {
+			System.out.println("Scan the QR to make the payment!!! ");
 			System.out.println(amount + " Paid.");
-			System.out.println("Your Seates are booked, You get a seatnumbers Via SMS. ");
+			System.out.println("Your Seates are booked, You'll get seat numbers Via SMS. ");
 		}
 		else {
 			System.out.println("Insufficient Funds! ");
@@ -124,10 +131,10 @@ public class TicketBooking {
 	}
 
 	//getter and setter for balance
-	public int getBalance() {
+	public double getBalance() {
 		return balance;
 	}
-	public void setBalance(int balance) {
+	public void setBalance(double balance) {
 		this.balance = balance;
 	}
 }
