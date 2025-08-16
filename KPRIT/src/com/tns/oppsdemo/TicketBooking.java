@@ -122,7 +122,8 @@ public class TicketBooking {
 	public void setWallno(String wallno) {
 		this.wallno = wallno;
 	}
-	
+
+	//getter and setter for balence
 	public int getBalance() {
 		return balance;
 	}
