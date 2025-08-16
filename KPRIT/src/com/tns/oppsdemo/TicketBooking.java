@@ -114,7 +114,7 @@ public class TicketBooking {
 	}
 
 	
-	//getter and setter for the wallno
+	//getter and setter for the wall number
 	public String getWallno() {
 		return wallno;
 	}
