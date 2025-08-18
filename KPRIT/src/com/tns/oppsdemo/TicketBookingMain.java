@@ -16,8 +16,8 @@ public class TicketBookingMain {
 		System.out.println("4. UPI/BHIM pay");
 		obj.option = sc.nextInt();
 		if (obj.option >=1 && obj.option <=4) {
-			System.out.print("Enter the Amount : ");
-			obj.amount = sc.nextDouble();
+			obj.amount = obj.fair;
+			System.out.println("Your Total payable amount was : " + obj.amount);
 		}
 		switch(obj.option) {
 		case 1: {
