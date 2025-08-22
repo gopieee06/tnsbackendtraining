@@ -20,7 +20,7 @@ public class IoException {
 			System.out.println("Sum of " + num + " numbers is : " + sum);
 		}
 		catch (InputMismatchException Io) {
-//			System.out.println("You Enter String/Charter intead of integer Values.");
+			System.out.println("You Enter String/Charter instead of integer Values.");
 			Io.printStackTrace();
 		}
 		finally {
