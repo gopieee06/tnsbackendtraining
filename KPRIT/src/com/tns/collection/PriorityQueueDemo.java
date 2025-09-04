@@ -14,7 +14,7 @@ public class PriorityQueueDemo {
 		pq.add(5);
 		pq.add(9);
 		
-		System.out.println("This is Priority Queue");
+		System.out.println("This is Priority Queue : ");
 		for (int i : pq)
 			System.out.println(i);
 	}
